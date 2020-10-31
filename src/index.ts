@@ -1,10 +1,10 @@
 import dotenv from 'dotenv';
-import express, { Request, Response, NextFunction } from 'express';
+import express, { Request, Response } from 'express';
 import cors from 'cors'
 import fs from 'fs'
 import path from 'path'
 
-const data = fs.readFileSync(path.join(__dirname,'/periodicTable.json'), 'utf8');
+const data = fs.readFileSync(path.join(__dirname,'../public/periodicTable.json'), 'utf8');
 const elements: string = JSON.stringify(JSON.parse(data), null, '\t');
 const elementsArray: Array<Elements> = JSON.parse(data);
 
