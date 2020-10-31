@@ -3,10 +3,9 @@ import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors'
 import fs from 'fs'
 import path from 'path'
-import { report } from 'process';
 
-let data = fs.readFileSync(path.join(__dirname,'/periodicTable.json'), 'utf8');
-let elements: string = JSON.stringify(JSON.parse(data), null, '\t');
+const data = fs.readFileSync(path.join(__dirname,'/periodicTable.json'), 'utf8');
+const elements: string = JSON.stringify(JSON.parse(data), null, '\t');
 const elementsArray: Array<Elements> = JSON.parse(data);
 
 // load the environment variables from the .env file
