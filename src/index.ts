@@ -4,7 +4,7 @@ import cors from 'cors'
 import fs from 'fs'
 import path from 'path'
 
-const data = fs.readFileSync(path.join(__dirname,'../public/periodicTable.json'), 'utf8');
+const data = fs.readFileSync(path.join(__dirname,'./public/periodicTable.json'), 'utf8');
 const elements: string = JSON.stringify(JSON.parse(data), null, '\t');
 const elementsArray: Array<Elements> = JSON.parse(data);
 
