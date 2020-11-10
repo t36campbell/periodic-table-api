@@ -31,23 +31,35 @@ server.app.use(cors());
 server.app.get('/elements',alldata);
 
 function alldata(req: Request, res: Response) {
-    res.send(elements);
+    res.json(elements);
 }
 
 //serach by element name
-server.app.get('/elements/:element/', searchElement);
+server.app.get('/elements/:element/', searchElement_name);
 
-function searchElement(req: Request, res: Response) {
+function searchElement_name(req: Request, res: Response) {
 	let query: String = req.params.element; 
 	query = query.charAt(0).toUpperCase() + query.slice(1).toLowerCase(); 
 	for (var i = 0; i < elementsArray.length; i++) {
     if (elementsArray[i].Element === query){
-      res.send(JSON.stringify(elementsArray[i], null, '\t'));
+      res.json(elementsArray[i]);
+   }
+  }
+}
+
+//serach by element number
+server.app.get('/elements/number/:element/', searchElement_number);
+
+function searchElement_number(req: Request, res: Response) {
+	let query: Number = Number(req.params.element);
+	for (var i = 0; i < elementsArray.length; i++) {
+    if (elementsArray[i].AtomicNumber === query){
+      res.json(elementsArray[i]);
    }
   }
 } 
 
-//seach by period number
+//search by period number
 server.app.get('/elements/period/:number', searchPeriod); 
 
 function searchPeriod(req: Request, res: Response) {
@@ -58,10 +70,10 @@ function searchPeriod(req: Request, res: Response) {
       Response.push(elementsArray[i]);
     }
   }
-  res.send(JSON.stringify(Response, null, '\t'));
+  res.json(Response);
 } 
 
-//seach by group number
+//search by group number
 server.app.get('/elements/group/:number', searchGroup);
 
 function searchGroup(req: Request, res: Response) {
@@ -75,7 +87,7 @@ function searchGroup(req: Request, res: Response) {
   res.send(JSON.stringify(Response, null, '\t'));
 }
 
-//seach by type name
+//search by type name
 server.app.get('/elements/type/:name', searchType);
 
 function searchType(req: Request, res: Response) {
@@ -87,10 +99,10 @@ function searchType(req: Request, res: Response) {
       Response.push(elementsArray[i]);
     }
   }
-  res.send(JSON.stringify(Response, null, '\t'));
+  res.json(Response);
 } 
 
-//seach by phase name
+//search by phase name
 server.app.get('/elements/phase/:name', searchPhase);
 
 function searchPhase(req: Request, res: Response) {
@@ -102,10 +114,10 @@ function searchPhase(req: Request, res: Response) {
       Response.push(elementsArray[i]);
     }
   }
-  res.send(JSON.stringify(Response, null, '\t'));
+  res.json(Response);
 } 
 
-//seach by year discovered after
+//search by year discovered after
 server.app.get('/elements/year/:number', searchYear);
 
 function searchYear(req: Request, res: Response) {
@@ -116,7 +128,7 @@ function searchYear(req: Request, res: Response) {
       Response.push(elementsArray[i]);
     }
   }
-  res.send(JSON.stringify(Response, null, '\t'));
+  res.json(Response);
 }
 interface Elements {
   AtomicNumber: Number,
