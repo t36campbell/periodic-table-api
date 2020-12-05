@@ -1,0 +1,66 @@
+<div class="grid-container">
+    <mat-grid-list cols="2" rowHeight="750px">
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-card class="dashboard-card">
+          <mat-card-header>
+            <mat-card-title color="primary">
+              {{details.element}}
+            </mat-card-title>
+            <mat-card-subtitle>
+              ${{details.atomicMass}}
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <ul>
+              <li>Symbol: {{details.symbol}}</li>
+              <li>Atomic Number: {{details.id}}</li>
+              <li>Atomic Weight: {{details.atomicMass}}</li>
+              <li>Atomic Radius: {{details.atomicRadius}}</li>
+              <li>Group: {{details.group}}</li>
+              <li>Period: {{details.period}}</li>
+              <li>Series: {{details.type}}</li>
+              <li>State: {{details.phase}}</li>
+              <li>Metal: {{details.metal}}</li>
+              <li>Metalloid: {{details.metalloid}}</li>
+              <li>Natural: {{details.natural}}</li>
+              <!-- typo in database -->
+              <li>Nonmetal: {{details.nonmental}}</li>
+              <li>Radioactive: {{details.radioactive}}</li>
+              <li>Neutrons: {{details.neutrons}}</li>
+              <li>Protons: {{details.protons}}</li>
+              <li>Electrons: {{details.electrons}}</li>
+              <li>Shells: {{details.shells}}</li>
+              <li>Valence: {{details.valence}}</li>
+              <li>Isotopes: {{details.isotopes}}</li>
+              <li>Electronegativity: {{details.electronegativity}}</li>
+              <li>Melting point: {{details.meltingPoint}}&#176;K</li>
+              <li>Boiling point: {{details.boilingPoint}}&#176;K</li>
+              <li>1st Ionization: {{details.firstIonization}} kJ/mol</li>
+              <li>Density: {{details.density}} kg/m<sup>3</sup></li>
+              <li>Specific Heat: {{details.specificHeat}}</li>
+              <li>Discovered: {{details.year}} by {{details.discoverer}}</li>
+            </ul>
+            
+            <mat-action-row class="action-buttons" fxLayout="row" fxLayoutAlign="center space-evenly">
+              <mat-form-field fxFlex="50">
+                <mat-label>Quantity</mat-label>
+                <mat-select [(value)]="qty">
+                  <mat-option *ngFor="let i of options" [value]="i.value">
+                    {{ i.value }} 
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <button
+                mat-button
+                fxFlex="50"
+                color="primary"
+                (click)="addItem(details, qty)"
+              >
+                Add to Cart
+              </button>
+          </mat-action-row>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>

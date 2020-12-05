@@ -1,0 +1,78 @@
+<mat-sidenav-container class="sidenav-container" [hasBackdrop]="'true'">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="'navigation'"
+    [mode]="'push'"
+  >
+    <mat-toolbar color="primary">
+      <span>Angular eComm</span>
+    </mat-toolbar>
+    <mat-nav-list class="nav-links">
+      <a mat-list-item (click)="drawer.close()" [routerLink]="''">Products</a>
+      <a mat-list-item (click)="drawer.close()" [routerLink]="'/stores'"
+        >Store Locator</a
+      >
+      <a mat-list-item (click)="drawer.close()" [routerLink]="'/cart'"
+        >Cart</a
+      >
+      <a mat-list-item (click)="drawer.close()" [routerLink]="'/account'"
+        >Account</a
+      >
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="content-bg">
+    <mat-toolbar color="primary">
+      <a
+        mat-icon-button
+        type="button"
+        color="theme"
+        class="menu-icon"
+        aria-label="Toggle sidenav"
+        (click)="drawer.toggle()"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </a>
+      <app-headline></app-headline>
+      <span class="fill-remaining-space"></span>
+      <button
+        mat-icon-button
+        type="button"
+        color="theme"
+        class="nav-icon"
+        aria-label="account"
+        [routerLink]="'account'"
+      >
+        <mat-icon aria-label="Account icon">account_circle</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        type="button"
+        color="theme"
+        class="nav-icon"
+        aria-label="cart"
+        [routerLink]="'cart'"
+      >
+        <mat-icon aria-label="Cart icon">local_grocery_store</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        type="button"
+        color="theme"
+        class="nav-icon-end"
+        aria-label="theme"
+      >
+        <mat-icon aria-label="Settings icon" [matMenuTriggerFor]="currency" 
+          >account_balance</mat-icon
+        >
+        <mat-menu #currency="matMenu" xPosition="before">
+          <button mat-menu-item *ngFor="let i of units" (click)="changeCurrency(i.value, i.unit)">
+            {{ i.viewValue }}
+          </button>
+        </mat-menu>
+      </button>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
