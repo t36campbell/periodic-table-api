@@ -6,9 +6,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HttpService {
 
-  uri = 'http://localhost:3000';
+  uri
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+     this.http.get(window.location.origin + '/backend').subscribe(data => {
+      this.uri = data
+    })
+  }
+  
 
   getElements() {
     return this.http.get(`${this.uri}/elements`);

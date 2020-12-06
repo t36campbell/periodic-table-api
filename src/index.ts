@@ -129,8 +129,13 @@ function searchYear(req: Request, res: Response) {
   }
   res.json(Response);
 }
-
+// loads html when as fallback
 server.app.use('*', (req, res) => res.sendFile(path.join(__dirname, './public/index.html')));
+
+//Gets backend var for use in the front end
+server.app.get('/backend', (req, res) => {
+  res.json({url: process.env.PORT})
+});
 interface Elements {
   AtomicNumber: Number,
   Element: String,
