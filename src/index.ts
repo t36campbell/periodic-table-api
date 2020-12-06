@@ -134,7 +134,7 @@ server.app.use('*', (req, res) => res.sendFile(path.join(__dirname, './public/in
 
 //Gets backend var for use in the front end
 server.app.get('/backend', (req, res) => {
-  res.json({url: process.env.PORT})
+  res.json(process.env.PORT)
 });
 interface Elements {
   AtomicNumber: Number,
