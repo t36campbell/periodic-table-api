@@ -1,19 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment'
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
 
-  uri
+  uri = environment.uri;
 
-  constructor(private http: HttpClient) {
-     this.http.get(window.location.origin + '/backend').subscribe(data => {
-      this.uri = data
-    })
-  }
-  
+  constructor(private http: HttpClient) {}
 
   getElements() {
     return this.http.get(`${this.uri}/elements`);
