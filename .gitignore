@@ -5,7 +5,7 @@ client/src/app/config.ts
 client/src/environments
 
 # Heroku Only
-# /client
+/client
 
 # compiled output
 /client/dist
