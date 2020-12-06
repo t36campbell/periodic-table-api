@@ -23,7 +23,7 @@ const server = new Server();
   server.app.listen(port, () => console.log(`> Listening on port ${port}`));
 })();
 
-server.app.use(express.static('public')); 
+server.app.use(express.static(path.join(__dirname, 'public'))); 
 server.app.use(cors());
 
 //return all elements
@@ -129,6 +129,8 @@ function searchYear(req: Request, res: Response) {
   }
   res.json(Response);
 }
+
+server.app.use('*', (req, res) => res.sendFile(path.join(__dirname, './public/index.html')));
 interface Elements {
   AtomicNumber: Number,
   Element: String,
