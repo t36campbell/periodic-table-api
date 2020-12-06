@@ -5,8 +5,8 @@
 /client/src/environments
 
 # compiled output
+/src/dist
 /client/dist
-/server/dist
 
 # dependencies
 /client/node_modules
