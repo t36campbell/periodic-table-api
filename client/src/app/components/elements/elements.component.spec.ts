@@ -7,7 +7,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 
-import { ProductsComponent } from './products.component';
+import { ProductsComponent } from './elements.component';
 
 describe('ProductsComponent', () => {
   let component: ProductsComponent;

@@ -1,10 +1,10 @@
 <div class="grid-container">
   <mat-grid-list [gridCols] rowHeight="fit" class="grid-list">
     <mat-grid-tile *ngFor="let element of elements" [colspan]="1" [rowspan]="1">
-      <mat-card class="dashboard-card" [routerLink] = "['/products', element.docId]">
+      <mat-card class="dashboard-card" [routerLink] = "['/elements', element.Element]">
         <mat-card-content class="dashboard-card-content">
-          <h1 class="symbol">{{element.symbol}}</h1>
-          <h3 class="number">{{element.id}}</h3>
+          <h1 class="symbol">{{element.Symbol}}</h1>
+          <h3 class="number">{{element.AtomicNumber}}</h3>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>

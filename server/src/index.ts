@@ -5,7 +5,6 @@ import fs from 'fs'
 import path from 'path'
 
 const data = fs.readFileSync(path.join(__dirname,'./public/periodicTable.json'), 'utf8');
-const elements: string = JSON.stringify(JSON.parse(data), null, '\t');
 const elementsArray: Array<Elements> = JSON.parse(data);
 
 // load the environment variables from the .env file
@@ -28,10 +27,10 @@ server.app.use(express.static('public'));
 server.app.use(cors());
 
 //return all elements
-server.app.get('/elements',alldata);
+server.app.get('/elements', alldata);
 
 function alldata(req: Request, res: Response) {
-    res.json(elements);
+    res.json(elementsArray);
 }
 
 //serach by element name
