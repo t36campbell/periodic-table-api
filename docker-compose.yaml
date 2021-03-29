@@ -10,9 +10,6 @@ services:
       PORT: ${PORT}
     ports: 
       - ${PORT}:${PORT}
-    volumes:
-      - ./server:/server
-      - /server/node_modules
       
 
   client:
@@ -21,5 +18,9 @@ services:
     volumes:
       - ./client:/client
       - /client/node_modules
+    expose:
+      - 4200
+    ports: 
+      - 4200:80
     links:
       - server
