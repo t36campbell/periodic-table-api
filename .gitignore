@@ -2,10 +2,7 @@
 
 # private config files
 client/src/app/config.ts
-client/src/environments
-
-# Heroku Only
-/client
+client/src/environments`
 
 # compiled output
 /client/dist
