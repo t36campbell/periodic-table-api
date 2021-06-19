@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../../services/http.service'
+import { FormControl } from '@angular/forms';
 
 
 @Component({
@@ -9,11 +10,14 @@ import { HttpService } from '../../services/http.service'
 })
 export class ElementsComponent implements OnInit{
   constructor(private _http: HttpService, ) {}
+  
+  elements; 
+  searchControl: FormControl;
 
   ngOnInit() {
     this.getData();
+    this.searchControl = new FormControl();
   }
-  elements; 
   
   getData() {
     this._http
