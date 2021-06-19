@@ -1,7 +1,7 @@
 // @angular
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -29,10 +29,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ElementsComponent } from './components/elements/elements.component';
 import { ElementDetailsComponent } from './components/elements/element-details/element-details.component';
 import { HeadlineComponent } from './components/navbar/headline/headline.component';
-//Pipes
-import { NgpSortModule } from "ngp-sort-pipe";
-//Loading Animation
-import { NgxSpinnerModule } from "ngx-spinner";
 //Enviroment environment
 import { environment } from "src/environments/environment";
 import { GridcolDirective } from './directives/gridcol.directive';
@@ -53,6 +49,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     LayoutModule,
     HttpClientModule,
@@ -73,10 +70,6 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     MatInputModule, 
     MatTableModule,
     MatCheckboxModule,
-    //Sort Pipe
-    NgpSortModule, 
-    // Loading Animation
-    NgxSpinnerModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [],
