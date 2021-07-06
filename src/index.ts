@@ -4,6 +4,8 @@ import cors from 'cors'
 import fs from 'fs'
 import path from 'path'
 
+var cache = require('express-redis-cache')();
+
 const data = fs.readFileSync(path.join(__dirname,'./public/periodicTable.json'), 'utf8');
 const elementsArray: Array<Elements> = JSON.parse(data);
 
@@ -27,53 +29,46 @@ server.app.use(express.static(path.join(__dirname, 'public')));
 server.app.use(cors());
 
 //return all elements
-server.app.get('/elements', alldata);
+server.app.get('/elements', cache.route(), allElements);
 
-function alldata(req: Request, res: Response) {
+function allElements(req: Request, res: Response) {
     res.json(elementsArray);
 }
 
 //serach by element name
-server.app.get('/elements/:element/', searchElement_name);
+server.app.get('/elements/:element/', cache.route(), searchElement_name);
 
 function searchElement_name(req: Request, res: Response) {
 	let query: String = req.params.element; 
+  // make all data in db lowercase then only convert query to lowercase
 	query = query.charAt(0).toUpperCase() + query.slice(1).toLowerCase(); 
-	for (var i = 0; i < elementsArray.length; i++) {
-    if (elementsArray[i].Element === query){
-      res.json(elementsArray[i]);
-   }
-  }
+  res.json(elementsArray.find( element => element.Element === query ))
 }
 
 //serach by element number
-server.app.get('/elements/number/:element/', searchElement_number);
+server.app.get('/elements/number/:element/', cache.route(), searchElement_number);
 
 function searchElement_number(req: Request, res: Response) {
 	let query: Number = Number(req.params.element);
-	for (var i = 0; i < elementsArray.length; i++) {
-    if (elementsArray[i].AtomicNumber === query){
-      res.json(elementsArray[i]);
-   }
-  }
+  res.json(elementsArray.find( element => element.AtomicNumber === query ))
 } 
 
 //search by period number
-server.app.get('/elements/period/:number', searchPeriod); 
+server.app.get('/elements/period/:number', cache.route(), searchPeriod); 
 
 function searchPeriod(req: Request, res: Response) {
   let query: Number = Number(req.params.number);
   let Response: Array<Elements> = [];  
-	for (var i = 0; i < elementsArray.length; i++) {
-    if (elementsArray[i].Period === query){
-      Response.push(elementsArray[i]);
+  elementsArray.forEach(element => {
+    if(element.Period === query) {
+        Response.push(element)
     }
-  }
+  });
   res.json(Response);
 } 
 
 //search by group number
-server.app.get('/elements/group/:number', searchGroup);
+server.app.get('/elements/group/:number', cache.route(), searchGroup);
 
 function searchGroup(req: Request, res: Response) {
 	let query: Number = Number(req.params.number);
@@ -87,7 +82,7 @@ function searchGroup(req: Request, res: Response) {
 }
 
 //search by type name
-server.app.get('/elements/type/:name', searchType);
+server.app.get('/elements/type/:name', cache.route(), searchType);
 
 function searchType(req: Request, res: Response) {
   let query: String = req.params.name;
@@ -102,7 +97,7 @@ function searchType(req: Request, res: Response) {
 } 
 
 //search by phase name
-server.app.get('/elements/phase/:name', searchPhase);
+server.app.get('/elements/phase/:name', cache.route(), searchPhase);
 
 function searchPhase(req: Request, res: Response) {
   let query: String = req.params.name;
@@ -117,7 +112,7 @@ function searchPhase(req: Request, res: Response) {
 } 
 
 //search by year discovered after
-server.app.get('/elements/year/:number', searchYear);
+server.app.get('/elements/year/:number', cache.route(), searchYear);
 
 function searchYear(req: Request, res: Response) {
 	let query: Number = Number(req.params.number);
@@ -131,6 +126,7 @@ function searchYear(req: Request, res: Response) {
 }
 // loads html when as fallback
 server.app.use('*', (req, res) => res.sendFile(path.join(__dirname, './public/index.html')));
+
 interface Elements {
   AtomicNumber: Number,
   Element: String,
