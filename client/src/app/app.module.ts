@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
-// Material 
+// Material
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -29,12 +29,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ElementsComponent } from './components/elements/elements.component';
 import { ElementDetailsComponent } from './components/elements/element-details/element-details.component';
 import { HeadlineComponent } from './components/navbar/headline/headline.component';
-//Pipes
-import { NgpSortModule } from "ngp-sort-pipe";
-//Loading Animation
-import { NgxSpinnerModule } from "ngx-spinner";
-//Enviroment environment
-import { environment } from "src/environments/environment";
+// Enviroment environment
+import { environment } from 'src/environments/environment';
 import { GridcolDirective } from './directives/gridcol.directive';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
@@ -57,7 +53,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     LayoutModule,
     HttpClientModule,
     FlexLayoutModule,
-    // Material 
+    // Material
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
@@ -70,13 +66,9 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     MatExpansionModule,
     MatSelectModule,
     MatSlideToggleModule,
-    MatInputModule, 
+    MatInputModule,
     MatTableModule,
     MatCheckboxModule,
-    //Sort Pipe
-    NgpSortModule, 
-    // Loading Animation
-    NgxSpinnerModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [],

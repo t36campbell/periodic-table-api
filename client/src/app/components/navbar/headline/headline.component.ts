@@ -7,13 +7,13 @@ import { Router, RoutesRecognized } from '@angular/router';
   styleUrls: ['./headline.component.scss']
 })
 export class HeadlineComponent implements OnInit {
-  page: string = '';
+  page = '';
   constructor(private router: Router) {
     router.events.subscribe(event => {
       if (event instanceof RoutesRecognized) {
-        let route = event.state.root.firstChild;
+        const route = event.state.root.firstChild;
         this.page = route.data.page ;
-        
+
       }
     });
   }

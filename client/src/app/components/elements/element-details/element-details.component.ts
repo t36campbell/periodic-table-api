@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { HttpService } from '../../../services/http.service'
+import { HttpService } from '../../../services/http.service';
 import { Router } from '@angular/router';
 
-import { Element } from '../../../services/element.model'
+import { Element } from '../../../services/element.model';
 
 @Component({
   selector: 'app-element-details',
@@ -12,18 +12,16 @@ import { Element } from '../../../services/element.model'
 export class ElementDetailsComponent implements OnInit {
 
   @Input() private elementId: number;
-  details: Element; 
-  
-  constructor(private _http: HttpService, private router: Router) {}
+
+  details: Element;
+
+  constructor(private httpService: HttpService, private router: Router) {}
+
   ngOnInit() {
-    this.getDetails(this.elementId)
+    this.getDetails(this.elementId);
   }
-  
-  getDetails(id: number) {
-    this._http
-      .getElementById(id)
-      .subscribe(data => {
-        this.details = data
-      })    
-  }    
+
+  getDetails(id: number): void {
+    this.httpService.getElementById(id).subscribe(data => this.details = data );
+  }
 }

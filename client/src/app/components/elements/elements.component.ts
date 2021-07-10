@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpService } from '../../services/http.service'
+import { HttpService } from '../../services/http.service';
 
-import { Element } from '../../services/element.model'
+import { Element } from '../../services/element.model';
 
 @Component({
   selector: 'app-element',
@@ -9,20 +9,16 @@ import { Element } from '../../services/element.model'
   styleUrls: ['./elements.component.scss']
 })
 export class ElementsComponent implements OnInit{
-  
-  elements: Element[]; 
-  
-  constructor(private _http: HttpService, ) {}
-  
+
+  elements: Element[];
+
+  constructor(private httpService: HttpService, ) {}
+
   ngOnInit() {
     this.getData();
   }
-  
-  getData() {
-    this._http
-      .getElements()
-      .subscribe(data => {
-        this.elements = data
-      })    
-  }    
+
+  getData(): void {
+    this.httpService.getElements().subscribe(data => this.elements = data );
+  }
 }
