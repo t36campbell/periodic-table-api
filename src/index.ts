@@ -42,7 +42,7 @@ function searchElement_name(req: Request, res: Response) {
 	let query: String = req.params.element; 
   // make all data in db lowercase then only convert query to lowercase
 	query = query.charAt(0).toUpperCase() + query.slice(1).toLowerCase(); 
-  res.json(elementsArray.find( element => element.Element === query ))
+  res.json(elementsArray.find( element => element.element === query ))
 }
 
 //serach by element number
@@ -50,7 +50,7 @@ server.app.get('/elements/number/:element/', cache.route(), searchElement_number
 
 function searchElement_number(req: Request, res: Response) {
 	let query: Number = Number(req.params.element);
-  res.json(elementsArray.find( element => element.AtomicNumber === query ))
+  res.json(elementsArray.find( element => element.atomicNumber === query ))
 } 
 
 //search by period number
@@ -60,7 +60,7 @@ function searchPeriod(req: Request, res: Response) {
   let query: Number = Number(req.params.number);
   let Response: Array<Elements> = [];  
   elementsArray.forEach(element => {
-    if(element.Period === query) {
+    if(element.period === query) {
         Response.push(element)
     }
   });
@@ -74,7 +74,7 @@ function searchGroup(req: Request, res: Response) {
 	let query: Number = Number(req.params.number);
   let Response: Array<Elements> = [];  
 	for (var i = 0; i < elementsArray.length; i++) {
-    if (elementsArray[i].Group === query){
+    if (elementsArray[i].group === query){
       Response.push(elementsArray[i]);
     }
   }
@@ -89,7 +89,7 @@ function searchType(req: Request, res: Response) {
   query = query.charAt(0).toUpperCase() + query.slice(1).toLowerCase(); 
   let Response: Array<Elements> = [];  
 	for (var i = 0; i < elementsArray.length; i++) {
-    if (elementsArray[i].Type === query){
+    if (elementsArray[i].type === query){
       Response.push(elementsArray[i]);
     }
   }
@@ -104,7 +104,7 @@ function searchPhase(req: Request, res: Response) {
   query = query.toLowerCase();
   let Response: Array<Elements> = [];  
 	for (var i = 0; i < elementsArray.length; i++) {
-    if (elementsArray[i].Phase === query){
+    if (elementsArray[i].phase === query){
       Response.push(elementsArray[i]);
     }
   }
@@ -118,7 +118,7 @@ function searchYear(req: Request, res: Response) {
 	let query: Number = Number(req.params.number);
   let Response: Array<Elements> = [];  
 	for (var i = 0; i < elementsArray.length; i++) {
-    if (elementsArray[i].Year > query){
+    if (elementsArray[i].year > query){
       Response.push(elementsArray[i]);
     }
   }
@@ -128,32 +128,32 @@ function searchYear(req: Request, res: Response) {
 server.app.use('*', (req, res) => res.sendFile(path.join(__dirname, './public/index.html')));
 
 interface Elements {
-  AtomicNumber: Number,
-  Element: String,
-  Symbol: String,
-  AtomicMass: Number,
-  NumberofNeutrons: Number,
-  NumberofProtons: Number,
-  NumberofElectrons: Number,
-  Period: Number,
-  Group: Number,
-  Phase: String,
-  Radioactive: Boolean,
-  Natural: Boolean,
-  Metal: Boolean,
-  Nonmetal: Boolean,
-  Metalloid: Boolean,
-  Type: String,
-  AtomicRadius: Number,
-  Electronegativity: Number,
-  FirstIonization: Number,
-  Density: String,
-  MeltingPoint: Number,
-  BoilingPoint: Number,
-  NumberOfIsotopes: Number,
-  Discoverer: String,
-  Year: Number,
-  SpecificHeat: Number,
-  NumberofShells: Number,
-  NumberofValence: Number,
+  atomicNumber: Number,
+  element: String,
+  symbol: String,
+  atomicMass: Number,
+  neutrons: Number,
+  protons: Number,
+  electrons: Number,
+  period: Number,
+  group: Number,
+  phase: String,
+  radioactive: Boolean,
+  natural: Boolean,
+  metal: Boolean,
+  nonMetal: Boolean,
+  metalloid: Boolean,
+  type: String,
+  atomicRadius: Number,
+  electronegativity: Number,
+  firstIonization: Number,
+  density: String,
+  meltingPoint: Number,
+  boilingPoint: Number,
+  isotopes: Number,
+  discoverer: String,
+  year: Number,
+  specificHeat: Number,
+  shells: Number,
+  valence: Number,
 }
