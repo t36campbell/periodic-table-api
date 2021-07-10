@@ -1,12 +1,3 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
-
-# private config files
-client/src/app/config.ts
-client/src/environments
-
-# Heroku Only
-/client
-
 # compiled output
 /client/dist
 /dist
