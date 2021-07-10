@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment'
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +12,15 @@ export class HttpService {
 
   constructor(private http: HttpClient) {}
 
-  getElements() {
-    return this.http.get(`${this.uri}/elements`);
+  getElements(): Observable<Element[]>  {
+    return this.http.get<Element[]>(`${this.uri}/elements`);
   }
-  getElementByName(element) {
-    return this.http.get(`${this.uri}/elements/${element}`);
+
+  getElementById(id: number): Observable<Element> {
+    return this.http.get<Element>(`${this.uri}/elements/${id}`);
+  }
+
+  getElementByName(name: string): Observable<Element> {
+    return this.http.get<Element>(`${this.uri}/elements/${name}`);
   }
 }

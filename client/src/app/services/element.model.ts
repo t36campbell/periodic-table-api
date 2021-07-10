@@ -1,7 +1,7 @@
 export interface Element {
-    id: Number,
+    atomicNumber: Number,
     element: String,
-    symbol: String
+    symbol: String,
     atomicMass: Number,
     neutrons: Number,
     protons: Number,
@@ -12,17 +12,17 @@ export interface Element {
     radioactive: Boolean,
     natural: Boolean,
     metal: Boolean,
-    nonmental: Boolean,
+    nonMetal: Boolean,
     metalloid: Boolean,
     type: String,
     atomicRadius: Number,
     electronegativity: Number,
     firstIonization: Number,
-    density: String
+    density: String,
     meltingPoint: Number,
     boilingPoint: Number,
     isotopes: Number,
-    discoverer: String
+    discoverer: String,
     year: Number,
     specificHeat: Number,
     shells: Number,

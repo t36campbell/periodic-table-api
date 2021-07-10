@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../../services/http.service'
 
+import { Element } from '../../services/element.model'
 
 @Component({
   selector: 'app-element',
@@ -8,12 +9,14 @@ import { HttpService } from '../../services/http.service'
   styleUrls: ['./elements.component.scss']
 })
 export class ElementsComponent implements OnInit{
+  
+  elements: Element[]; 
+  
   constructor(private _http: HttpService, ) {}
-
+  
   ngOnInit() {
     this.getData();
   }
-  elements; 
   
   getData() {
     this._http
