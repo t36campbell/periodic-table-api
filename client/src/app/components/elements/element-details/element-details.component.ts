@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { HttpService } from '../../../services/http.service'
 import { Router } from '@angular/router';
+
+import { Element } from '../../../services/element.model'
 
 @Component({
   selector: 'app-element-details',
@@ -9,21 +11,19 @@ import { Router } from '@angular/router';
 })
 export class ElementDetailsComponent implements OnInit {
 
-  constructor(private _http: HttpService, private router: Router) {}
-
-  ngOnInit() {
-    let url = this.router.url
-    url = url.substring(10);
-    this.getDetails(url);
-  }
-  details; 
+  @Input() private elementId: number;
+  details: Element; 
   
-  getDetails(element) {
+  constructor(private _http: HttpService, private router: Router) {}
+  ngOnInit() {
+    this.getDetails(this.elementId)
+  }
+  
+  getDetails(id: number) {
     this._http
-      .getElementByName(element)
+      .getElementById(id)
       .subscribe(data => {
         this.details = data
-        console.log(this.details);
       })    
   }    
 }
