@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node dist/index.js",
     "dev": "nodemon src/index.ts",
-    "tsc": "tsc && mv -i -v src/public dist/ && cp -a src/dist/. dist/public && rm -v -rf src"
+    "tsc": "tsc && mv -i -v src/public dist/"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +21,7 @@
   "devDependencies": {
     "@types/cors": "^2.8.10",
     "@types/express": "^4.17.12",
+    "@types/express-redis-cache": "^1.1.1",
     "@types/node": "^16.0.0",
     "nodemon": "^2.0.9",
     "ts-node": "^10.0.0",

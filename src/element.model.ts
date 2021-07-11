@@ -1,0 +1,30 @@
+export interface Element {
+    atomicNumber: number;
+    element: string;
+    symbol: string;
+    atomicMass: number;
+    neutrons: number;
+    protons: number;
+    electrons: number;
+    period: number;
+    group: number;
+    phase: string;
+    radioactive: boolean;
+    natural: boolean;
+    metal: boolean;
+    nonMetal: boolean;
+    metalloid: boolean;
+    type: string;
+    atomicRadius: number;
+    electronegativity: number;
+    firstIonization: number;
+    density: string;
+    meltingPoint: number;
+    boilingPoint: number;
+    isotopes: number;
+    discoverer: string;
+    year: number;
+    specificHeat: number;
+    shells: number;
+    valence: number;
+  }
