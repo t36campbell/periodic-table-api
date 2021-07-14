@@ -1,0 +1,15 @@
+name: Notion Test
+on:
+  issues:
+  issue_comment:
+jobs:
+  notion:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Notion Board
+        uses: Souvikns/Notion-Board@v1.0.0
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
+          NOTION_DATABASE: ${{ secrets.NOTION_DATABASE }}
