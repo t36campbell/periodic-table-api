@@ -1,15 +1,24 @@
-name: Notion Test
-on:
-  issues:
-  issue_comment:
+name: "GitHub Notion Issues Automation"
+
+permissions:
+    issues: read
+
+# Run code on issue or issue comment
+on: 
+  [issues] # what causes the action to run, do you want it on push, issue, etc.
+
 jobs:
-  notion:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Notion Board
-        uses: Souvikns/Notion-Board@1.0.0
-        env: 
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
-          NOTION_DATABASE: ${{ secrets.NOTION_DATABASE }}
+      - name: Notion GitHub Issues Automation
+        uses: Sajantoor/Notion-GitHub-Issues-Automation@1.0.0
+        with:
+            # Your current repository.
+            repo: ${{ github.repository }} 
+            # Your Notion API Key
+            NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
+            # Your Notion database ID
+            NOTION_DATABASE: ${{ secrets.NOTION_DATABASE }}
+            # The ID of the page that contains your database
+            NOTION_PAGE_ID:  ${{ secrets.NOTION_PAGE_ID }}
