@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpService } from '../../../services/http.service'
+import { HttpService } from '../../../services/http.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,20 +10,20 @@ import { Router } from '@angular/router';
 export class ElementDetailsComponent implements OnInit {
 
   constructor(private _http: HttpService, private router: Router) {}
+  details;
 
   ngOnInit() {
-    let url = this.router.url
+    let url = this.router.url;
     url = url.substring(10);
     this.getDetails(url);
   }
-  details; 
-  
+
   getDetails(element) {
     this._http
       .getElementByName(element)
       .subscribe(data => {
-        this.details = data
+        this.details = data;
         console.log(this.details);
-      })    
-  }    
+      });
+  }
 }

@@ -27,13 +27,13 @@ export class GridcolDirective implements OnInit {
   }
 
   public constructor(private grid: MatGridList, private breakpointObserver: BreakpointObserver) {
-    if(this.grid != null) {
+    if (this.grid != null) {
       this.grid.cols = this.gridCols.md;
     }
   }
 
   public ngOnInit(): void {
-    if(this.grid != null) {
+    if (this.grid != null) {
       this.grid.cols = this.gridCols.md;
     }
     this.breakpointObserver.observe([
