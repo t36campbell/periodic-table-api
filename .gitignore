@@ -1,5 +1,6 @@
 # compiled output
 /frontend/dist
+/frontend/.next
 /backend/dist
 
 # dependencies
