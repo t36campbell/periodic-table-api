@@ -1,0 +1,43 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Element {
+    id                Int      @default(autoincrement()) @id
+    atomicNumber      Int
+    element           String
+    symbol            String
+    atomicMass        Float
+    neutrons          Int
+    protons           Int
+    electrons         Int
+    period            Int
+    group             Int
+    phase             String
+    radioactive       Boolean
+    natural           Boolean
+    metal             Boolean
+    nonmetal          Boolean
+    metalloid         Boolean
+    type              String
+    atomicRadius      Float
+    electronegativity Float
+    firstIonization   Float
+    density           String
+    meltingPoint      Float
+    boilingPoint      Float
+    isotopes          Float
+    discoverer        String
+    discovered        Int
+    specificHeat      Float
+    shells            Int
+    valence           Int
+  }
