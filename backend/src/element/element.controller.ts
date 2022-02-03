@@ -6,25 +6,34 @@ import {
   Param,
   Patch,
   Delete,
+  UseGuards,
 } from '@nestjs/common';
 import { ElementService } from './element.service';
 import { Element } from '@prisma/client';
+import { JwtAuthGuard } from 'src/core/jwt-auth.guard';
+import { Roles } from 'src/core/role.decorator';
+import { Role } from 'src/auth/auth.model';
+import { RoleGuard } from 'src/core/role.guard';
 
 @Controller('element')
+@UseGuards(JwtAuthGuard, RoleGuard)
 export class ElementController {
-  constructor(private readonly elementService: ElementService) {}
+  constructor(private elementService: ElementService) {}
 
   @Post()
+  @Roles(Role.ADMIN)
   async createElement(@Body() data: Element): Promise<Element> {
     return this.elementService.createElement(data);
   }
 
   @Get(':id')
+  @Roles(Role.USER)
   async getElement(@Param('id') id: string): Promise<Element> {
     return this.elementService.getElement(+id);
   }
 
   @Patch(':id')
+  @Roles(Role.ADMIN)
   async updateElement(
     @Param('id') id: string,
     @Body() data: Element,
@@ -33,6 +42,7 @@ export class ElementController {
   }
 
   @Delete(':id')
+  @Roles(Role.ADMIN)
   async deleteElement(@Param('id') id: string): Promise<Element> {
     return this.elementService.deleteElement(+id);
   }
