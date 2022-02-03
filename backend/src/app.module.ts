@@ -1,11 +1,12 @@
 import { Module } from '@nestjs/common';
-import { PrismaService } from './prisma/prisma.service';
-import { ElementService } from './element/element.service';
-import { ElementController } from './element/element.controller';
+
+import { ConfigModule } from '@nestjs/config';
+import { AuthModule } from './auth/auth.module';
+import { ElementModule } from './element/element.module';
 
 @Module({
-  imports: [],
-  controllers: [ElementController],
-  providers: [PrismaService, ElementService],
+  imports: [ConfigModule.forRoot(), AuthModule, ElementModule],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
