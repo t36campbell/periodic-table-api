@@ -1,1 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    background: linear-gradient(
+    270deg, 
+    #F44336,
+    #FF9800,
+    #FFEB3B,
+    #4CAF50,
+    #2196F3,
+    #9C27B0,
+    #3F51B5,
+    );
+    background-size: 1800% 1800%;
+    -webkit-animation: 
+        rainbow 
+        18s 
+        ease-in-out 
+        0s
+        alternate 
+        infinite;
+    animation:     
+        rainbow 
+        18s 
+        ease-in-out 
+        0s
+        alternate 
+        infinite;
+  }
+  @-webkit-keyframes rainbow {
+    0% { background-position: 0% 25% }
+    25% { background-position: 25% 50% }
+    50% { background-position: 50% 75% }
+    75% { background-position: 75% 50% }
+    100% { background-position: 100% 25% }
+  }
+  @keyframes rainbow {
+    0% { background-position: 0% 25% }
+    25% { background-position: 25% 50% }
+    50% { background-position: 50% 75% }
+    75% { background-position: 75% 50% }
+    100% { background-position: 100% 25% }
+  }
