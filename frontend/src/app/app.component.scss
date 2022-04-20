@@ -64,9 +64,9 @@ path {
   fill-rule: nonzero;
   pointer-events: all;
   z-index: 100;
-  opacity: 72%;
-
+  opacity: 96%;
+  
   &.active {
-    opacity: 100%;
+    fill: #424242 !important;
   }
 }
