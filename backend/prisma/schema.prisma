@@ -20,35 +20,85 @@ model User {
 
 model Element {
   id                Int      @default(autoincrement()) @id
-  atomicNumber      Int
   element           String
   symbol            String
-  atomicMass        Float
+  groupId           Int
+  periodId          Int
+  typeId            Int
+}
+
+model AtomicParticles {
+  id                Int      @default(autoincrement()) @id
   neutrons          Int
   protons           Int
   electrons         Int
-  period            Int
-  group             Int
-  phase             String
+}
+
+model ElectronShell {
+  id                Int      @default(autoincrement()) @id
+  shells            Int
+  valence           Int
+  electrons         Int
+}
+
+model ElementProperties {
+  id                Int      @default(autoincrement()) @id
+  atomicMass        Float
+  atomicRadius      Float
+  electronegativity Float
+  firstIonization   Float
+  meltingPoint      Float
+  boilingPoint      Float
+  isotopes          Float
+  specificHeat      Float
+  density           String   // expressed in scientific notation
+}
+
+model ElementDetails {
+  id                Int      @default(autoincrement()) @id
   radioactive       Boolean
   natural           Boolean
   metal             Boolean
   nonmetal          Boolean
   metalloid         Boolean
-  type              String
-  atomicRadius      Float
-  electronegativity Float
-  firstIonization   Float
-  density           String
-  meltingPoint      Float
-  boilingPoint      Float
-  isotopes          Float
-  discoverer        String
-  discovered        Int
-  specificHeat      Float
-  shells            Int
-  valence           Int
+  discoverer        Int
+  discovered        Int     // Change to Date
 }
+
+model Discoverer {
+  id    Int      @default(autoincrement()) @id
+  firstName           String
+  lastName           String
+}
+
+model Group {
+  id    Int      @default(autoincrement()) @id
+  name  String   @unique
+}
+
+model Period {
+  id    Int      @default(autoincrement()) @id
+  name  String   @unique
+}
+
+model ElementType {
+  id    Int      @default(autoincrement()) @id
+  name  String   @unique
+}
+
+// figure out change in phase based on temp
+model Phase {    
+  id              Int      @default(autoincrement()) @id
+  typeId          Int   
+  temperatureMin  Float   
+  temperatureMax  Float   
+}
+
+model PhaseType {    
+  id    Int      @default(autoincrement()) @id
+  name  String   @unique
+}
+
 
 enum Role {
   ADMIN
