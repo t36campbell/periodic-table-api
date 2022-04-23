@@ -17,86 +17,86 @@ model User {
   role  Role     @default(USER)
 }
 
-
 model Element {
-  id                Int      @default(autoincrement()) @id
-  element           String
-  symbol            String
-  groupId           Int
-  periodId          Int
-  typeId            Int
+  id          Int      @default(autoincrement()) @id
+  element     String
+  symbol      String
+  svgPath     String?
+  groupId     Int
+  periodId    Int
+  typeId      Int?
 }
 
 model AtomicParticles {
-  id                Int      @default(autoincrement()) @id
-  neutrons          Int
-  protons           Int
-  electrons         Int
+  id            Int      @default(autoincrement()) @id
+  neutrons      Int
+  protons       Int
+  electrons     Int
 }
 
 model ElectronShell {
-  id                Int      @default(autoincrement()) @id
-  shells            Int
-  valence           Int
-  electrons         Int
+  id            Int      @default(autoincrement()) @id
+  shells        Int
+  valence       Int
+  electrons     Int
 }
 
 model ElementProperties {
-  id                Int      @default(autoincrement()) @id
-  atomicMass        Float
-  atomicRadius      Float
-  electronegativity Float
-  firstIonization   Float
-  meltingPoint      Float
-  boilingPoint      Float
-  isotopes          Float
-  specificHeat      Float
-  density           String   // expressed in scientific notation
+  id                  Int      @default(autoincrement()) @id
+  atomicMass          Float
+  atomicRadius        Float
+  electronegativity   Float
+  firstIonization     Float
+  meltingPoint        Float
+  boilingPoint        Float
+  isotopes            Float
+  specificHeat        Float
+  density             String   // expressed in scientific notation
 }
 
 model ElementDetails {
-  id                Int      @default(autoincrement()) @id
-  radioactive       Boolean
-  natural           Boolean
-  metal             Boolean
-  nonmetal          Boolean
-  metalloid         Boolean
-  discoverer        Int
-  discovered        Int     // Change to Date
+  id              Int      @default(autoincrement()) @id
+  radioactive     Boolean
+  natural         Boolean
+  metal           Boolean
+  nonmetal        Boolean
+  metalloid       Boolean
+  discovererId    Int?
+  discovered      DateTime? @db.Date
 }
 
-model Discoverer {
-  id    Int      @default(autoincrement()) @id
-  firstName           String
-  lastName           String
+model ElementDiscoverer {
+  id            Int      @default(autoincrement()) @id
+  firstName     String
+  lastName      String
 }
 
-model Group {
-  id    Int      @default(autoincrement()) @id
-  name  String   @unique
+model ElementGroup {
+  id      Int      @default(autoincrement()) @id
+  name    String   @unique
 }
 
-model Period {
-  id    Int      @default(autoincrement()) @id
-  name  String   @unique
+model ElementPeriod {
+  id      Int      @default(autoincrement()) @id
+  name    String   @unique
 }
 
 model ElementType {
-  id    Int      @default(autoincrement()) @id
-  name  String   @unique
+  id      Int      @default(autoincrement()) @id
+  name    String   @unique
 }
 
 // figure out change in phase based on temp
-model Phase {    
-  id              Int      @default(autoincrement()) @id
-  typeId          Int   
-  temperatureMin  Float   
-  temperatureMax  Float   
+model ElementPhase {    
+  id                  Int      @default(autoincrement()) @id
+  typeId              Int   
+  temperatureMin      Float   
+  temperatureMax      Float   
 }
 
-model PhaseType {    
-  id    Int      @default(autoincrement()) @id
-  name  String   @unique
+model ElementPhaseType {    
+  id      Int      @default(autoincrement()) @id
+  name    String   @unique
 }
 
 
