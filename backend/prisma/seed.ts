@@ -1,13 +1,12 @@
 import { PrismaClient } from '@prisma/client';
 
+import { DISCOVERERS } from './discoverers';
+import { GROUPS } from './groups';
 import { PERIODIC_TABLE } from './periodic-table';
-
-const DISCOVERERS = [];
-const GROUPS = [];
-const PERIODS = [];
-const TYPES = [];
-const PHASES = [];
-const PHASE_TYPES = [];
+import { PERIODS } from './periods';
+import { PHASES } from './phases';
+import { PHASE_TYPES } from './phases-types';
+import { TYPES } from './types';
 
 const prisma = new PrismaClient();
 
