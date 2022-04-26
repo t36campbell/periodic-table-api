@@ -7,6 +7,7 @@ import { PERIODS } from './periods';
 import { PHASES } from './phases';
 import { PHASE_TYPES } from './phases-types';
 import { SERIES } from './series';
+import { SVG_PATHS } from './svg-paths';
 
 const prisma = new PrismaClient();
 
