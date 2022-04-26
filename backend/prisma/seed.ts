@@ -6,14 +6,14 @@ import { PERIODIC_TABLE } from './periodic-table';
 import { PERIODS } from './periods';
 import { PHASES } from './phases';
 import { PHASE_TYPES } from './phases-types';
-import { TYPES } from './types';
+import { SERIES } from './series';
 
 const prisma = new PrismaClient();
 
 async function main() {
   await createElementGroups();
   await createElementPeriods();
-  await createElementTypes();
+  await createElementSeries();
   await createElements();
   await createAtomicParticles();
   await createElectronShells();
@@ -31,6 +31,8 @@ async function createElements() {
       symbol: e.symbol,
       groupId: e.group,
       periodId: e.period,
+      seriesId: SERIES.findIndex((series) => series === e.series),
+      svgPath: SVG_PATHS[e.symbol],
     })),
   });
 }
@@ -94,25 +96,19 @@ async function createElementDiscoverers() {
 
 async function createElementGroups() {
   await prisma.elementGroup.createMany({
-    data: GROUPS.map((g) => ({
-      name: g.name,
-    })),
+    data: GROUPS.map((group) => ({ name: group })),
   });
 }
 
 async function createElementPeriods() {
   await prisma.elementPeriod.createMany({
-    data: PERIODS.map((p) => ({
-      name: p.name,
-    })),
+    data: PERIODS.map((period) => ({ name: period })),
   });
 }
-
-async function createElementTypes() {
+// change elementType to elementSeries after prisma generate schema
+async function createElementSeries() {
   await prisma.elementType.createMany({
-    data: TYPES.map((t) => ({
-      name: t.name,
-    })),
+    data: SERIES.map((series) => ({ name: series })),
   });
 }
 
