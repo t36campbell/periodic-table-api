@@ -20,11 +20,11 @@ model User {
 model Element {
   id          Int      @default(autoincrement()) @id
   element     String
-  symbol      String
-  svgPath     String?
   groupId     Int
   periodId    Int
-  typeId      Int?
+  seriesId    Int
+  svgPath     String
+  symbol      String
 }
 
 model AtomicParticles {
@@ -81,7 +81,7 @@ model ElementPeriod {
   name    String   @unique
 }
 
-model ElementType {
+model ElementSeries {
   id      Int      @default(autoincrement()) @id
   name    String   @unique
 }
@@ -89,9 +89,9 @@ model ElementType {
 // figure out change in phase based on temp
 model ElementPhase {    
   id                  Int      @default(autoincrement()) @id
+  elementId           Int
   typeId              Int   
-  temperatureMin      Float   
-  temperatureMax      Float   
+  temperatureRange    Int[]
 }
 
 model ElementPhaseType {    
