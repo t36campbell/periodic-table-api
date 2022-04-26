@@ -1,6 +1,6 @@
 export const GROUPS = [
-  'alkali metals, or lithium family',
-  'alkaline earth metals, or beryllium family',
+  'lithium family, alkali metals',
+  'beryllium family, alkaline earth metals',
   'scandium family',
   'titanium family',
   'vanadium family',
@@ -13,8 +13,8 @@ export const GROUPS = [
   'zinc family',
   'boron family',
   'carbon family',
-  'Pnictogens, or nitrogen family',
-  'Chalcogens, or oxygen family',
-  'Halogens, or fluorine family',
-  'Noble Gases, or helium/neon family',
+  'nitrogen family, pnictogens',
+  'oxygen family, chalcogens',
+  'fluorine family, halogens',
+  'helium/neon family, noble gases',
 ];
