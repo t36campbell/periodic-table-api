@@ -1,1 +1,1 @@
-export const PERIODS = [];
+export const PERIODS = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven'];
