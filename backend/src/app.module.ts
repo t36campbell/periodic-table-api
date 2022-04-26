@@ -10,9 +10,9 @@ import { ElementDetailsModule } from './element-details/element-details.module';
 import { ElementDiscovererModule } from './element-discoverer/element-discoverer.module';
 import { ElementGroupModule } from './element-group/element-group.module';
 import { ElementPeriodModule } from './element-period/element-period.module';
-import { ElementTypeModule } from './element-type/element-type.module';
 import { ElementPhaseModule } from './element-phase/element-phase.module';
 import { ElementPhaseTypeModule } from './element-phase-type/element-phase-type.module';
+import { ElementSeriesModule } from './element-series/element-series.module';
 
 @Module({
   imports: [
@@ -26,9 +26,9 @@ import { ElementPhaseTypeModule } from './element-phase-type/element-phase-type.
     ElementDiscovererModule,
     ElementGroupModule,
     ElementPeriodModule,
-    ElementTypeModule,
     ElementPhaseModule,
     ElementPhaseTypeModule,
+    ElementSeriesModule,
   ],
   controllers: [],
   providers: [],
