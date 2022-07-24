@@ -1,13 +1,13 @@
 import { PrismaClient } from '@prisma/client';
 
-import { DISCOVERERS } from './discoverers';
 import { GROUPS } from './groups';
-import { PERIODIC_TABLE } from './periodic-table';
+import { PERIODIC_TABLE, TableElement } from './periodic-table';
 import { PERIODS } from './periods';
 import { PHASES } from './phases';
 import { PHASE_TYPES } from './phases-types';
 import { SERIES } from './series';
 import { SVG_PATHS } from './svg-paths';
+import { selectId } from 'src/prisma/prisma.model';
 
 const prisma = new PrismaClient();
 
@@ -15,52 +15,84 @@ async function main() {
   await createElementGroups();
   await createElementPeriods();
   await createElementSeries();
-  await createElements();
-  await createAtomicParticles();
-  await createElectronShells();
-  await createElementProperties();
-  await createElementDetails();
-  await createElementDiscoverers();
   await createElementPhaseTypes();
   await createElementPhases();
+  await createElements();
 }
 
-async function createElements() {
+async function createElements(): Promise<void> {
   await prisma.element.createMany({
     data: PERIODIC_TABLE.map((e) => ({
-      element: e.element,
+      name: e.name,
       symbol: e.symbol,
-      groupId: e.group,
-      periodId: e.period,
-      seriesId: SERIES.findIndex((series) => series === e.series),
       svgPath: SVG_PATHS[e.symbol],
+      group: {
+        connect: { id: findForeignKey('elementGroup', { id: e.group }) }
+      },
+      period: {
+        connect: { id: findForeignKey('elementPeriod', { id: e.period }) }
+      },
+      series: {
+        connect: { id: findForeignKey('elementSeries', { id: e.series }) }
+      },
+      particles: {
+        connect: { id: createAtomicParticle(e) }
+      },
+      shell: createElectronShell(e),
+      propertiesId: createElementProperties(e),
+      detailsId: createElementDetails(e)
     })),
   });
 }
 
-async function createAtomicParticles() {
-  await prisma.atomicParticles.createMany({
-    data: PERIODIC_TABLE.map((e) => ({
-      neutrons: e.neutrons,
-      protons: e.protons,
-      electrons: e.electrons,
-    })),
+async function createElementGroups(): Promise<void> {
+  await prisma.elementGroup.createMany({
+    data: GROUPS.map((name) => ({ name })),
   });
 }
 
-async function createElectronShells() {
-  await prisma.electronShell.createMany({
-    data: PERIODIC_TABLE.map((e) => ({
-      shells: e.neutrons,
-      valence: e.protons,
-      electrons: e.electrons,
-    })),
+async function createElementPeriods(): Promise<void> {
+  await prisma.elementPeriod.createMany({
+    data: PERIODS.map((name) => ({ name })),
   });
 }
 
-async function createElementProperties() {
-  await prisma.elementProperties.createMany({
-    data: PERIODIC_TABLE.map((e) => ({
+async function createElementSeries(): Promise<void> {
+  await prisma.elementType.createMany({
+    data: SERIES.map((name) => ({ name })),
+  });
+}
+
+
+async function createAtomicParticle(e: TableElement): Promise<number> {
+  const { neutrons, protons, electrons } = e
+  return await prisma.atomicParticles.create({
+    data: {
+      neutrons,
+      protons,
+      electrons,
+    },
+    select: selectId
+
+  });
+}
+
+async function createElectronShell(e: TableElement): Promise<number> {
+  const { shells, valence, electrons } = e
+  return await prisma.electronShell.create({
+    data: {
+      shells,
+      valence,
+      electrons,
+    },
+    select: selectId
+
+  });
+}
+
+async function createElementProperties(e: TableElement): Promise<number> {
+  return await prisma.elementProperties.create({
+    data: {
       atomicMass: e.atomicMass,
       atomicRadius: e.atomicRadius,
       electronegativity: e.electronegativity,
@@ -70,50 +102,41 @@ async function createElementProperties() {
       isotopes: e.isotopes,
       specificHeat: e.specificHeat,
       density: e.density,
-    })),
+    },
+    select: selectId
+
   });
 }
 
-async function createElementDetails() {
-  await prisma.elementDetails.createMany({
-    data: PERIODIC_TABLE.map((e) => ({
+async function createElementDetails(e: TableElement): Promise<number> {
+  return await prisma.elementDetails.create({
+    data: {
       radioactive: e.radioactive,
       natural: e.natural,
       metal: e.metal,
       nonmetal: e.nonmetal,
       metalloid: e.metalloid,
-    })),
+      discovered: e.discovered,
+      discovererId: createElementDiscoverer(e.discoverer),
+    },
+    select: selectId
+
   });
 }
 
-async function createElementDiscoverers() {
-  await prisma.elementDiscoverer.createMany({
-    data: DISCOVERERS.map((d) => ({
-      firstName: d.firstName,
-      lastName: d.lastName,
-    })),
+async function createElementDiscoverer(discoverer: string): Promise<void> {
+  const [firstName, lastName] = discoverer.split(' ')
+  await prisma.elementDiscoverer.create({
+    data: {
+      firstName,
+      lastName,
+    },
+    select: selectId
   });
 }
 
-async function createElementGroups() {
-  await prisma.elementGroup.createMany({
-    data: GROUPS.map((group) => ({ name: group })),
-  });
-}
 
-async function createElementPeriods() {
-  await prisma.elementPeriod.createMany({
-    data: PERIODS.map((period) => ({ name: period })),
-  });
-}
-// change elementType to elementSeries after prisma generate schema
-async function createElementSeries() {
-  await prisma.elementType.createMany({
-    data: SERIES.map((series) => ({ name: series })),
-  });
-}
-
-async function createElementPhases() {
+async function createElementPhases(): Promise<void> {
   await prisma.elementPhase.createMany({
     data: PHASES.map((t) => ({
       typeId: t.typeId,
@@ -123,12 +146,18 @@ async function createElementPhases() {
   });
 }
 
-async function createElementPhaseTypes() {
+async function createElementPhaseTypes(): Promise<void> {
   await prisma.elementPhaseType.createMany({
-    data: PHASE_TYPES.map((p) => ({
-      name: p.name,
-    })),
+    data: PHASE_TYPES.map((name) => ({ name })),
   });
+}
+
+async function findForeignKey(table: string, where: any ): Promise<number> {
+  // need to make this work dynamically
+  // const t = prisma[`${table}`] this is trash
+  
+  const t = Object.getOwnPropertyNames(prisma).find((names)=> {})
+  return await t.findUnique({ where }, { select: selectId })
 }
 
 main()

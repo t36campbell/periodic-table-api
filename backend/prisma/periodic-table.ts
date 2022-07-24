@@ -1,7 +1,7 @@
-export const PERIODIC_TABLE = [
+export const PERIODIC_TABLE: TableElement[] = [
   {
     atomicNumber: 1,
-    element: 'Hydrogen',
+    name: 'Hydrogen',
     symbol: 'H',
     atomicMass: 1.007,
     neutrons: 0,
@@ -31,7 +31,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 2,
-    element: 'Helium',
+    name: 'Helium',
     symbol: 'He',
     atomicMass: 4.002,
     neutrons: 2,
@@ -61,7 +61,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 3,
-    element: 'Lithium',
+    name: 'Lithium',
     symbol: 'Li',
     atomicMass: 6.941,
     neutrons: 4,
@@ -91,7 +91,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 4,
-    element: 'Beryllium',
+    name: 'Beryllium',
     symbol: 'Be',
     atomicMass: 9.012,
     neutrons: 5,
@@ -121,7 +121,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 5,
-    element: 'Boron',
+    name: 'Boron',
     symbol: 'B',
     atomicMass: 10.811,
     neutrons: 6,
@@ -151,7 +151,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 6,
-    element: 'Carbon',
+    name: 'Carbon',
     symbol: 'C',
     atomicMass: 12.011,
     neutrons: 6,
@@ -181,7 +181,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 7,
-    element: 'Nitrogen',
+    name: 'Nitrogen',
     symbol: 'N',
     atomicMass: 14.007,
     neutrons: 7,
@@ -211,7 +211,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 8,
-    element: 'Oxygen',
+    name: 'Oxygen',
     symbol: 'O',
     atomicMass: 15.999,
     neutrons: 8,
@@ -241,7 +241,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 9,
-    element: 'Fluorine',
+    name: 'Fluorine',
     symbol: 'F',
     atomicMass: 18.998,
     neutrons: 10,
@@ -271,7 +271,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 10,
-    element: 'Neon',
+    name: 'Neon',
     symbol: 'Ne',
     atomicMass: 20.18,
     neutrons: 10,
@@ -301,7 +301,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 11,
-    element: 'Sodium',
+    name: 'Sodium',
     symbol: 'Na',
     atomicMass: 22.99,
     neutrons: 12,
@@ -331,7 +331,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 12,
-    element: 'Magnesium',
+    name: 'Magnesium',
     symbol: 'Mg',
     atomicMass: 24.305,
     neutrons: 12,
@@ -361,7 +361,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 13,
-    element: 'Aluminum',
+    name: 'Aluminum',
     symbol: 'Al',
     atomicMass: 26.982,
     neutrons: 14,
@@ -391,7 +391,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 14,
-    element: 'Silicon',
+    name: 'Silicon',
     symbol: 'Si',
     atomicMass: 28.086,
     neutrons: 14,
@@ -421,7 +421,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 15,
-    element: 'Phosphorus',
+    name: 'Phosphorus',
     symbol: 'P',
     atomicMass: 30.974,
     neutrons: 16,
@@ -451,7 +451,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 16,
-    element: 'Sulfur',
+    name: 'Sulfur',
     symbol: 'S',
     atomicMass: 32.065,
     neutrons: 16,
@@ -481,7 +481,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 17,
-    element: 'Chlorine',
+    name: 'Chlorine',
     symbol: 'Cl',
     atomicMass: 35.453,
     neutrons: 18,
@@ -511,7 +511,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 18,
-    element: 'Argon',
+    name: 'Argon',
     symbol: 'Ar',
     atomicMass: 39.948,
     neutrons: 22,
@@ -541,7 +541,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 19,
-    element: 'Potassium',
+    name: 'Potassium',
     symbol: 'K',
     atomicMass: 39.098,
     neutrons: 20,
@@ -571,7 +571,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 20,
-    element: 'Calcium',
+    name: 'Calcium',
     symbol: 'Ca',
     atomicMass: 40.078,
     neutrons: 20,
@@ -601,7 +601,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 21,
-    element: 'Scandium',
+    name: 'Scandium',
     symbol: 'Sc',
     atomicMass: 44.956,
     neutrons: 24,
@@ -631,7 +631,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 22,
-    element: 'Titanium',
+    name: 'Titanium',
     symbol: 'Ti',
     atomicMass: 47.867,
     neutrons: 26,
@@ -661,7 +661,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 23,
-    element: 'Vanadium',
+    name: 'Vanadium',
     symbol: 'V',
     atomicMass: 50.942,
     neutrons: 28,
@@ -691,7 +691,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 24,
-    element: 'Chromium',
+    name: 'Chromium',
     symbol: 'Cr',
     atomicMass: 51.996,
     neutrons: 28,
@@ -721,7 +721,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 25,
-    element: 'Manganese',
+    name: 'Manganese',
     symbol: 'Mn',
     atomicMass: 54.938,
     neutrons: 30,
@@ -751,7 +751,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 26,
-    element: 'Iron',
+    name: 'Iron',
     symbol: 'Fe',
     atomicMass: 55.845,
     neutrons: 30,
@@ -781,7 +781,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 27,
-    element: 'Cobalt',
+    name: 'Cobalt',
     symbol: 'Co',
     atomicMass: 58.933,
     neutrons: 32,
@@ -811,7 +811,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 28,
-    element: 'Nickel',
+    name: 'Nickel',
     symbol: 'Ni',
     atomicMass: 58.693,
     neutrons: 31,
@@ -841,7 +841,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 29,
-    element: 'Copper',
+    name: 'Copper',
     symbol: 'Cu',
     atomicMass: 63.546,
     neutrons: 35,
@@ -871,7 +871,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 30,
-    element: 'Zinc',
+    name: 'Zinc',
     symbol: 'Zn',
     atomicMass: 65.38,
     neutrons: 35,
@@ -901,7 +901,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 31,
-    element: 'Gallium',
+    name: 'Gallium',
     symbol: 'Ga',
     atomicMass: 69.723,
     neutrons: 39,
@@ -931,7 +931,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 32,
-    element: 'Germanium',
+    name: 'Germanium',
     symbol: 'Ge',
     atomicMass: 72.64,
     neutrons: 41,
@@ -961,7 +961,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 33,
-    element: 'Arsenic',
+    name: 'Arsenic',
     symbol: 'As',
     atomicMass: 74.922,
     neutrons: 42,
@@ -991,7 +991,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 34,
-    element: 'Selenium',
+    name: 'Selenium',
     symbol: 'Se',
     atomicMass: 78.96,
     neutrons: 45,
@@ -1021,7 +1021,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 35,
-    element: 'Bromine',
+    name: 'Bromine',
     symbol: 'Br',
     atomicMass: 79.904,
     neutrons: 45,
@@ -1051,7 +1051,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 36,
-    element: 'Krypton',
+    name: 'Krypton',
     symbol: 'Kr',
     atomicMass: 83.798,
     neutrons: 48,
@@ -1081,7 +1081,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 37,
-    element: 'Rubidium',
+    name: 'Rubidium',
     symbol: 'Rb',
     atomicMass: 85.468,
     neutrons: 48,
@@ -1111,7 +1111,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 38,
-    element: 'Strontium',
+    name: 'Strontium',
     symbol: 'Sr',
     atomicMass: 87.62,
     neutrons: 50,
@@ -1141,7 +1141,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 39,
-    element: 'Yttrium',
+    name: 'Yttrium',
     symbol: 'Y',
     atomicMass: 88.906,
     neutrons: 50,
@@ -1171,7 +1171,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 40,
-    element: 'Zirconium',
+    name: 'Zirconium',
     symbol: 'Zr',
     atomicMass: 91.224,
     neutrons: 51,
@@ -1201,7 +1201,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 41,
-    element: 'Niobium',
+    name: 'Niobium',
     symbol: 'Nb',
     atomicMass: 92.906,
     neutrons: 52,
@@ -1231,7 +1231,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 42,
-    element: 'Molybdenum',
+    name: 'Molybdenum',
     symbol: 'Mo',
     atomicMass: 95.96,
     neutrons: 54,
@@ -1261,7 +1261,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 43,
-    element: 'Technetium',
+    name: 'Technetium',
     symbol: 'Tc',
     atomicMass: 98,
     neutrons: 55,
@@ -1291,7 +1291,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 44,
-    element: 'Ruthenium',
+    name: 'Ruthenium',
     symbol: 'Ru',
     atomicMass: 101.07,
     neutrons: 57,
@@ -1321,7 +1321,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 45,
-    element: 'Rhodium',
+    name: 'Rhodium',
     symbol: 'Rh',
     atomicMass: 102.906,
     neutrons: 58,
@@ -1351,7 +1351,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 46,
-    element: 'Palladium',
+    name: 'Palladium',
     symbol: 'Pd',
     atomicMass: 106.42,
     neutrons: 60,
@@ -1381,7 +1381,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 47,
-    element: 'Silver',
+    name: 'Silver',
     symbol: 'Ag',
     atomicMass: 107.868,
     neutrons: 61,
@@ -1411,7 +1411,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 48,
-    element: 'Cadmium',
+    name: 'Cadmium',
     symbol: 'Cd',
     atomicMass: 112.411,
     neutrons: 64,
@@ -1441,7 +1441,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 49,
-    element: 'Indium',
+    name: 'Indium',
     symbol: 'In',
     atomicMass: 114.818,
     neutrons: 66,
@@ -1471,7 +1471,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 50,
-    element: 'Tin',
+    name: 'Tin',
     symbol: 'Sn',
     atomicMass: 118.71,
     neutrons: 69,
@@ -1501,7 +1501,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 51,
-    element: 'Antimony',
+    name: 'Antimony',
     symbol: 'Sb',
     atomicMass: 121.76,
     neutrons: 71,
@@ -1531,7 +1531,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 52,
-    element: 'Tellurium',
+    name: 'Tellurium',
     symbol: 'Te',
     atomicMass: 127.6,
     neutrons: 76,
@@ -1561,7 +1561,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 53,
-    element: 'Iodine',
+    name: 'Iodine',
     symbol: 'I',
     atomicMass: 126.904,
     neutrons: 74,
@@ -1591,7 +1591,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 54,
-    element: 'Xenon',
+    name: 'Xenon',
     symbol: 'Xe',
     atomicMass: 131.293,
     neutrons: 77,
@@ -1621,7 +1621,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 55,
-    element: 'Cesium',
+    name: 'Cesium',
     symbol: 'Cs',
     atomicMass: 132.905,
     neutrons: 78,
@@ -1651,7 +1651,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 56,
-    element: 'Barium',
+    name: 'Barium',
     symbol: 'Ba',
     atomicMass: 137.327,
     neutrons: 81,
@@ -1681,7 +1681,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 57,
-    element: 'Lanthanum',
+    name: 'Lanthanum',
     symbol: 'La',
     atomicMass: 138.905,
     neutrons: 82,
@@ -1711,7 +1711,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 58,
-    element: 'Cerium',
+    name: 'Cerium',
     symbol: 'Ce',
     atomicMass: 140.116,
     neutrons: 82,
@@ -1741,7 +1741,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 59,
-    element: 'Praseodymium',
+    name: 'Praseodymium',
     symbol: 'Pr',
     atomicMass: 140.908,
     neutrons: 82,
@@ -1771,7 +1771,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 60,
-    element: 'Neodymium',
+    name: 'Neodymium',
     symbol: 'Nd',
     atomicMass: 144.242,
     neutrons: 84,
@@ -1801,7 +1801,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 61,
-    element: 'Promethium',
+    name: 'Promethium',
     symbol: 'Pm',
     atomicMass: 145,
     neutrons: 84,
@@ -1831,7 +1831,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 62,
-    element: 'Samarium',
+    name: 'Samarium',
     symbol: 'Sm',
     atomicMass: 150.36,
     neutrons: 88,
@@ -1861,7 +1861,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 63,
-    element: 'Europium',
+    name: 'Europium',
     symbol: 'Eu',
     atomicMass: 151.964,
     neutrons: 89,
@@ -1891,7 +1891,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 64,
-    element: 'Gadolinium',
+    name: 'Gadolinium',
     symbol: 'Gd',
     atomicMass: 157.25,
     neutrons: 93,
@@ -1921,7 +1921,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 65,
-    element: 'Terbium',
+    name: 'Terbium',
     symbol: 'Tb',
     atomicMass: 158.925,
     neutrons: 94,
@@ -1951,7 +1951,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 66,
-    element: 'Dysprosium',
+    name: 'Dysprosium',
     symbol: 'Dy',
     atomicMass: 162.5,
     neutrons: 97,
@@ -1981,7 +1981,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 67,
-    element: 'Holmium',
+    name: 'Holmium',
     symbol: 'Ho',
     atomicMass: 164.93,
     neutrons: 98,
@@ -2011,7 +2011,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 68,
-    element: 'Erbium',
+    name: 'Erbium',
     symbol: 'Er',
     atomicMass: 167.259,
     neutrons: 99,
@@ -2041,7 +2041,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 69,
-    element: 'Thulium',
+    name: 'Thulium',
     symbol: 'Tm',
     atomicMass: 168.934,
     neutrons: 100,
@@ -2071,7 +2071,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 70,
-    element: 'Ytterbium',
+    name: 'Ytterbium',
     symbol: 'Yb',
     atomicMass: 173.054,
     neutrons: 103,
@@ -2101,7 +2101,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 71,
-    element: 'Lutetium',
+    name: 'Lutetium',
     symbol: 'Lu',
     atomicMass: 174.967,
     neutrons: 104,
@@ -2131,7 +2131,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 72,
-    element: 'Hafnium',
+    name: 'Hafnium',
     symbol: 'Hf',
     atomicMass: 178.49,
     neutrons: 106,
@@ -2161,7 +2161,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 73,
-    element: 'Tantalum',
+    name: 'Tantalum',
     symbol: 'Ta',
     atomicMass: 180.948,
     neutrons: 108,
@@ -2191,7 +2191,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 74,
-    element: 'Wolfram',
+    name: 'Wolfram',
     symbol: 'W',
     atomicMass: 183.84,
     neutrons: 110,
@@ -2221,7 +2221,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 75,
-    element: 'Rhenium',
+    name: 'Rhenium',
     symbol: 'Re',
     atomicMass: 186.207,
     neutrons: 111,
@@ -2251,7 +2251,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 76,
-    element: 'Osmium',
+    name: 'Osmium',
     symbol: 'Os',
     atomicMass: 190.23,
     neutrons: 114,
@@ -2281,7 +2281,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 77,
-    element: 'Iridium',
+    name: 'Iridium',
     symbol: 'Ir',
     atomicMass: 192.217,
     neutrons: 115,
@@ -2311,7 +2311,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 78,
-    element: 'Platinum',
+    name: 'Platinum',
     symbol: 'Pt',
     atomicMass: 195.084,
     neutrons: 117,
@@ -2341,7 +2341,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 79,
-    element: 'Gold',
+    name: 'Gold',
     symbol: 'Au',
     atomicMass: 196.967,
     neutrons: 118,
@@ -2371,7 +2371,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 80,
-    element: 'Mercury',
+    name: 'Mercury',
     symbol: 'Hg',
     atomicMass: 200.59,
     neutrons: 121,
@@ -2401,7 +2401,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 81,
-    element: 'Thallium',
+    name: 'Thallium',
     symbol: 'Tl',
     atomicMass: 204.383,
     neutrons: 123,
@@ -2431,7 +2431,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 82,
-    element: 'Lead',
+    name: 'Lead',
     symbol: 'Pb',
     atomicMass: 207.2,
     neutrons: 125,
@@ -2461,7 +2461,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 83,
-    element: 'Bismuth',
+    name: 'Bismuth',
     symbol: 'Bi',
     atomicMass: 208.98,
     neutrons: 126,
@@ -2491,7 +2491,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 84,
-    element: 'Polonium',
+    name: 'Polonium',
     symbol: 'Po',
     atomicMass: 210,
     neutrons: 126,
@@ -2521,7 +2521,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 85,
-    element: 'Astatine',
+    name: 'Astatine',
     symbol: 'At',
     atomicMass: 210,
     neutrons: 125,
@@ -2551,7 +2551,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 86,
-    element: 'Radon',
+    name: 'Radon',
     symbol: 'Rn',
     atomicMass: 222,
     neutrons: 136,
@@ -2581,7 +2581,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 87,
-    element: 'Francium',
+    name: 'Francium',
     symbol: 'Fr',
     atomicMass: 223,
     neutrons: 136,
@@ -2611,7 +2611,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 88,
-    element: 'Radium',
+    name: 'Radium',
     symbol: 'Ra',
     atomicMass: 226,
     neutrons: 138,
@@ -2641,7 +2641,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 89,
-    element: 'Actinium',
+    name: 'Actinium',
     symbol: 'Ac',
     atomicMass: 227,
     neutrons: 138,
@@ -2671,7 +2671,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 90,
-    element: 'Thorium',
+    name: 'Thorium',
     symbol: 'Th',
     atomicMass: 232.038,
     neutrons: 142,
@@ -2701,7 +2701,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 91,
-    element: 'Protactinium',
+    name: 'Protactinium',
     symbol: 'Pa',
     atomicMass: 231.036,
     neutrons: 140,
@@ -2731,7 +2731,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 92,
-    element: 'Uranium',
+    name: 'Uranium',
     symbol: 'U',
     atomicMass: 238.029,
     neutrons: 146,
@@ -2761,7 +2761,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 93,
-    element: 'Neptunium',
+    name: 'Neptunium',
     symbol: 'Np',
     atomicMass: 237,
     neutrons: 144,
@@ -2791,7 +2791,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 94,
-    element: 'Plutonium',
+    name: 'Plutonium',
     symbol: 'Pu',
     atomicMass: 244,
     neutrons: 150,
@@ -2821,7 +2821,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 95,
-    element: 'Americium',
+    name: 'Americium',
     symbol: 'Am',
     atomicMass: 243,
     neutrons: 148,
@@ -2851,7 +2851,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 96,
-    element: 'Curium',
+    name: 'Curium',
     symbol: 'Cm',
     atomicMass: 247,
     neutrons: 151,
@@ -2881,7 +2881,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 97,
-    element: 'Berkelium',
+    name: 'Berkelium',
     symbol: 'Bk',
     atomicMass: 247,
     neutrons: 150,
@@ -2911,7 +2911,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 98,
-    element: 'Californium',
+    name: 'Californium',
     symbol: 'Cf',
     atomicMass: 251,
     neutrons: 153,
@@ -2941,7 +2941,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 99,
-    element: 'Einsteinium',
+    name: 'Einsteinium',
     symbol: 'Es',
     atomicMass: 252,
     neutrons: 153,
@@ -2971,7 +2971,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 100,
-    element: 'Fermium',
+    name: 'Fermium',
     symbol: 'Fm',
     atomicMass: 257,
     neutrons: 157,
@@ -3001,7 +3001,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 101,
-    element: 'Mendelevium',
+    name: 'Mendelevium',
     symbol: 'Md',
     atomicMass: 258,
     neutrons: 157,
@@ -3031,7 +3031,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 102,
-    element: 'Nobelium',
+    name: 'Nobelium',
     symbol: 'No',
     atomicMass: 259,
     neutrons: 157,
@@ -3061,7 +3061,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 103,
-    element: 'Lawrencium',
+    name: 'Lawrencium',
     symbol: 'Lr',
     atomicMass: 262,
     neutrons: 159,
@@ -3091,7 +3091,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 104,
-    element: 'Rutherfordium',
+    name: 'Rutherfordium',
     symbol: 'Rf',
     atomicMass: 261,
     neutrons: 157,
@@ -3121,7 +3121,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 105,
-    element: 'Dubnium',
+    name: 'Dubnium',
     symbol: 'Db',
     atomicMass: 262,
     neutrons: 157,
@@ -3151,7 +3151,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 106,
-    element: 'Seaborgium',
+    name: 'Seaborgium',
     symbol: 'Sg',
     atomicMass: 266,
     neutrons: 160,
@@ -3181,7 +3181,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 107,
-    element: 'Bohrium',
+    name: 'Bohrium',
     symbol: 'Bh',
     atomicMass: 264,
     neutrons: 157,
@@ -3211,7 +3211,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 108,
-    element: 'Hassium',
+    name: 'Hassium',
     symbol: 'Hs',
     atomicMass: 267,
     neutrons: 159,
@@ -3241,7 +3241,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 109,
-    element: 'Meitnerium',
+    name: 'Meitnerium',
     symbol: 'Mt',
     atomicMass: 268,
     neutrons: 159,
@@ -3271,7 +3271,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 110,
-    element: 'Darmstadtium ',
+    name: 'Darmstadtium ',
     symbol: 'Ds ',
     atomicMass: 271,
     neutrons: 161,
@@ -3301,7 +3301,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 111,
-    element: 'Roentgenium ',
+    name: 'Roentgenium ',
     symbol: 'Rg ',
     atomicMass: 272,
     neutrons: 161,
@@ -3331,7 +3331,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 112,
-    element: 'Copernicium ',
+    name: 'Copernicium ',
     symbol: 'Cn ',
     atomicMass: 285,
     neutrons: 173,
@@ -3361,7 +3361,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 113,
-    element: 'Nihonium',
+    name: 'Nihonium',
     symbol: 'Nh',
     atomicMass: 284,
     neutrons: 171,
@@ -3391,7 +3391,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 114,
-    element: 'Flerovium',
+    name: 'Flerovium',
     symbol: 'Fl',
     atomicMass: 289,
     neutrons: 175,
@@ -3421,7 +3421,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 115,
-    element: 'Moscovium',
+    name: 'Moscovium',
     symbol: 'Mc',
     atomicMass: 288,
     neutrons: 173,
@@ -3451,7 +3451,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 116,
-    element: 'Livermorium',
+    name: 'Livermorium',
     symbol: 'Lv',
     atomicMass: 292,
     neutrons: 176,
@@ -3481,7 +3481,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 117,
-    element: 'Tennessine',
+    name: 'Tennessine',
     symbol: 'Ts',
     atomicMass: 295,
     neutrons: 178,
@@ -3511,7 +3511,7 @@ export const PERIODIC_TABLE = [
   },
   {
     atomicNumber: 118,
-    element: 'Oganesson',
+    name: 'Oganesson',
     symbol: 'Og',
     atomicMass: 294,
     neutrons: 176,
@@ -3540,3 +3540,34 @@ export const PERIODIC_TABLE = [
     valence: 8,
   },
 ];
+
+export interface TableElement {
+  atomicNumber: number,
+  name: string,
+  symbol: string,
+  atomicMass: number,
+  neutrons: number
+  protons: number,
+  electrons: number,
+  period: number,
+  group: number,
+  phase: string,
+  radioactive: boolean,
+  natural: boolean,
+  metal: boolean,
+  nonmetal: boolean,
+  metalloid: boolean,
+  series: string,
+  atomicRadius: number,
+  electronegativity: number,
+  firstIonization: number,
+  density: string,
+  meltingPoint: number,
+  boilingPoint: number,
+  isotopes: number,
+  discoverer: string,
+  discovered: number,
+  specificHeat: number,
+  shells: number,
+  valence: number,
+}
