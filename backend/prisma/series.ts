@@ -10,4 +10,5 @@ export const SERIES = [
   'Nonmetal',
   'Transactinide',
   'Transition Metal',
+  'n/a',
 ];

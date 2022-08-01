@@ -17,4 +17,5 @@ export const GROUPS = [
   'oxygen family, chalcogens',
   'fluorine family, halogens',
   'helium/neon family, noble gases',
+  'n/a',
 ];
