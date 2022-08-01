@@ -11,7 +11,7 @@ export class ActiveUserGuard implements CanActivate {
   ) {}
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
-    const request = await this.coreService.getRequest<LoginRequest>(context)
+    const request = await this.coreService.getRequest<LoginRequest>(context);
     const user = await this.userService.validateUserByEmail(request.body.email);
     return !!user;
   }

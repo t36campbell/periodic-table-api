@@ -10,9 +10,9 @@ export class UpdateUserGuard implements CanActivate {
   ) {}
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
-    // will this work 
-    const request = await this.coreService.getRequest(context)
-    const user = await this.userService.decodeUser(request)
+    // will this work
+    const request = await this.coreService.getRequest(context);
+    const user = await this.userService.decodeUser(request);
     const validatedUser = await this.userService.validateUserById(user.id);
     return !!validatedUser;
   }

@@ -1,12 +1,11 @@
 import { Injectable, ExecutionContext } from '@nestjs/common';
-import { PrismaService, Prisma } from '../prisma/prisma.service';
+import { Prisma } from '@prisma/client';
+import { PrismaService } from '../prisma/prisma.service';
 import { JwtService } from '@nestjs/jwt';
 import { User } from '@prisma/client';
-import { ROLES_KEY } from 'src/core/role.decorator';
-import { PUBLIC_KEY } from 'src/core/public.decorator';
 import { selectId } from '../prisma/prisma.model';
 import { HttpRequest } from 'src/core/core.model';
-import { Role, Token } from 'src/auth/auth.model';
+import { Token } from 'src/auth/auth.model';
 import { Reflector } from '@nestjs/core';
 
 @Injectable()
@@ -24,19 +23,19 @@ export class UserService {
   async findUser(email: string): Promise<User> {
     return this.prisma.user.findUnique({ where: { email } });
   }
-  
-  async validateUserByEmail(email: string): Promise<number> {
-    return this.prisma.user.findUnique({ 
+
+  async validateUserByEmail(email: string): Promise<{ id: number }> {
+    return this.prisma.user.findUnique({
       where: { email },
-      select: selectId
+      select: selectId,
     });
   }
-  
-  async validateUserById(id: number): Promise<number> {
-    return this.prisma.user.findUnique({ 
+
+  async validateUserById(id: number): Promise<{ id: number }> {
+    return this.prisma.user.findUnique({
       where: { id },
-      select: selectId
-     });
+      select: selectId,
+    });
   }
 
   async updateUser(id: number, data: User): Promise<User> {
@@ -51,8 +50,11 @@ export class UserService {
     const token = request.headers.authorization.replace('Bearer ', '');
     return this.jwtService.decode(token) as User;
   }
-  
-  async checkRequirements<T>(context: ExecutionContext, KEY: string): Promise<T> {
+
+  async checkRequirements<T>(
+    context: ExecutionContext,
+    KEY: string,
+  ): Promise<T> {
     return this.reflector.getAllAndOverride<T>(KEY, [
       context.getHandler(),
       context.getClass(),

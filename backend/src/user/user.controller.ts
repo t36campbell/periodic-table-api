@@ -18,9 +18,7 @@ import { UpdateUserGuard } from 'src/auth/guards/update-user.guard';
 @Controller('user')
 @UseGuards(JwtAuthGuard, RoleGuard)
 export class UserController {
-  constructor(
-    private userService: UserService,
-  ) {}
+  constructor(private userService: UserService) {}
 
   @Post()
   @Public()
@@ -31,10 +29,7 @@ export class UserController {
   @Patch(':id')
   @Roles(Role.USER)
   @UseGuards(UpdateUserGuard)
-  async updateUser(
-    @Param('id') id: string,
-    @Body() data: User,
-  ): Promise<User> {
+  async updateUser(@Param('id') id: string, @Body() data: User): Promise<User> {
     return this.userService.updateUser(+id, data);
   }
 }

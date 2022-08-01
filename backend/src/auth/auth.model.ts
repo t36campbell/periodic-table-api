@@ -7,6 +7,6 @@ export interface Token {
   token: string;
 }
 
-export interface LoginRequest { 
-  email: string 
+export interface LoginRequest {
+  email: string;
 }
