@@ -5,23 +5,21 @@ import {
   Patch,
   Param,
   UseGuards,
-  Headers,
 } from '@nestjs/common';
 import { User } from '@prisma/client';
 import { Role } from 'src/auth/auth.model';
-import { JwtService } from '@nestjs/jwt';
-import { JwtAuthGuard } from 'src/core/jwt-auth.guard';
+import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 import { Public } from 'src/core/public.decorator';
 import { Roles } from 'src/core/role.decorator';
-import { RoleGuard } from 'src/core/role.guard';
+import { RoleGuard } from 'src/auth/guards/role.guard';
 import { UserService } from './user.service';
+import { UpdateUserGuard } from 'src/auth/guards/update-user.guard';
 
 @Controller('user')
 @UseGuards(JwtAuthGuard, RoleGuard)
 export class UserController {
   constructor(
     private userService: UserService,
-    private jwtService: JwtService,
   ) {}
 
   @Post()
@@ -32,15 +30,11 @@ export class UserController {
 
   @Patch(':id')
   @Roles(Role.USER)
+  @UseGuards(UpdateUserGuard)
   async updateUser(
     @Param('id') id: string,
     @Body() data: User,
-    @Headers() headers,
   ): Promise<User> {
-    const token = headers.authorization.replace('Bearer ', '');
-    const user = this.jwtService.decode(token) as User;
-    if (user.id === +id) {
-      return this.userService.updateUser(+id, data);
-    }
+    return this.userService.updateUser(+id, data);
   }
 }

@@ -1,8 +1,6 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearch"]
 }
 
 datasource db {
@@ -11,43 +9,104 @@ datasource db {
 }
 
 model User {
-  id    Int      @default(autoincrement()) @id
-  email String   @unique
+  id    Int    @id @default(autoincrement())
+  email String @unique
   name  String
-  role  Role     @default(USER)
+  role  Role   @default(USER)
 }
 
-
 model Element {
-  id                Int      @default(autoincrement()) @id
-  atomicNumber      Int
-  element           String
-  symbol            String
+  id           Int               @id @default(autoincrement())
+  name         String            
+  symbol       String            
+  svgPath      String             
+  group        ElementGroup      @relation(fields: [groupId], references: [id])
+  groupId      Int
+  period       ElementPeriod     @relation(fields: [periodId], references: [id])
+  periodId     Int
+  series       ElementSeries     @relation(fields: [seriesId], references: [id])
+  seriesId     Int
+  particles    AtomicParticles   @relation(fields: [particlesId], references: [id])
+  particlesId  Int
+  shell        ElectronShell     @relation(fields: [shellId], references: [id])
+  shellId      Int
+  properties   ElementProperties @relation(fields: [propertiesId], references: [id])
+  propertiesId Int
+  details      ElementDetails    @relation(fields: [detailsId], references: [id])
+  detailsId    Int
+}
+
+model AtomicParticles {
+  id        Int       @id @default(autoincrement())
+  neutrons  Int
+  protons   Int
+  electrons Int
+  Element   Element[]
+}
+
+model ElectronShell {
+  id        Int       @id @default(autoincrement())
+  shells    Int
+  valence   Int
+  electrons Int
+  Element   Element[]
+}
+
+model ElementProperties {
+  id                Int       @id @default(autoincrement())
   atomicMass        Float
-  neutrons          Int
-  protons           Int
-  electrons         Int
-  period            Int
-  group             Int
-  phase             String
-  radioactive       Boolean
-  natural           Boolean
-  metal             Boolean
-  nonmetal          Boolean
-  metalloid         Boolean
-  type              String
   atomicRadius      Float
   electronegativity Float
   firstIonization   Float
-  density           String
   meltingPoint      Float
   boilingPoint      Float
   isotopes          Float
-  discoverer        String
-  discovered        Int
   specificHeat      Float
-  shells            Int
-  valence           Int
+  density           String // expressed in scientific notation
+  Element           Element[]
+}
+
+model ElementDetails {
+  id           Int                @id @default(autoincrement())
+  radioactive  Boolean
+  natural      Boolean
+  metal        Boolean
+  nonmetal     Boolean
+  metalloid    Boolean
+  discovered   DateTime?          @db.Date
+  discoverer   String?
+  Element      Element[]
+}
+
+model ElementGroup {
+  id      Int       @id @default(autoincrement())
+  name    String    
+  Element Element[]
+}
+
+model ElementPeriod {
+  id      Int       @id @default(autoincrement())
+  name    String    
+  Element Element[]
+}
+
+model ElementSeries {
+  id      Int       @id @default(autoincrement())
+  name    String    
+  Element Element[]
+}
+
+model ElementPhase {
+  id               Int              @id @default(autoincrement())
+  type             ElementPhaseType @relation(fields: [typeId], references: [id])
+  typeId           Int
+  temperatureRange Int[]
+}
+
+model ElementPhaseType {
+  id           Int            @id @default(autoincrement())
+  name         String         
+  ElementPhase ElementPhase[]
 }
 
 enum Role {
