@@ -9,64 +9,36 @@ svg {
   clip-rule: evenodd;
   stroke-linejoin: round;
   stroke-miterlimit: 1 !important;
-  background: linear-gradient(
-    270deg,
-    #f44336,
-    #ff9800,
-    #ffc107,
-    #4caf50,
-    #2196f3,
-    #9c27b0,
-    #3f51b5
-  );
-  background-size: 900% 900%;
-  -webkit-animation: rainbow 36s ease-in-out 0s alternate infinite;
-  animation: rainbow 36s ease-in-out 0s alternate infinite;
 }
-
-@-webkit-keyframes rainbow {
-  0% {
-    background-position: 0% 25%;
-  }
-  25% {
-    background-position: 25% 50%;
-  }
-  50% {
-    background-position: 50% 75%;
-  }
-  75% {
-    background-position: 75% 50%;
-  }
-  100% {
-    background-position: 100% 25%;
-  }
-}
-@keyframes rainbow {
-  0% {
-    background-position: 0% 25%;
-  }
-  25% {
-    background-position: 25% 50%;
-  }
-  50% {
-    background-position: 50% 75%;
-  }
-  75% {
-    background-position: 75% 50%;
-  }
-  100% {
-    background-position: 100% 25%;
-  }
-}
-
 path {
-  fill: #000 !important;
+  fill: #999;
   fill-rule: nonzero;
   pointer-events: all;
   z-index: 100;
-  opacity: 96%;
+  opacity:100%;
+  transition: fill 6s ease;
   
   &.active {
-    fill: #424242 !important;
+    &.red {
+      fill: #f44336;
+    }
+    &.organge {
+      fill: #ff9800;
+    }
+    &.yellow {
+      fill: #ffc107;
+    }
+    &.green {
+      fill: #4caf50;
+    }
+    &.blue {
+      fill: #2196f3;
+    }
+    &.indigo {
+      fill: #9c27b0;
+    }
+    &.violet {
+      fill: #3f51b5;
+    }
   }
 }
