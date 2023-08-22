@@ -16,10 +16,8 @@ constructor() {
   const timerLoop = () => { 
     this.currentIndex++ 
     this.currentIndex = this.currentIndex === 7 ? 0 : this.currentIndex
-    console.log(this.currentIndex)
-    return ''
   }
-  setInterval(timerLoop, 1500);
+  setInterval(timerLoop, 2000);
 }
 
   getElementBounds(id: string): DOMRect {
@@ -41,7 +39,6 @@ constructor() {
   }
 
   elementClass(id: string): string {
-
     const element = document.getElementById(id)
     const active = element?.classList.contains('active');
     if(!active) {
