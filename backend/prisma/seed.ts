@@ -1,4 +1,4 @@
-import { PrismaClient } from '@prisma/client';
+import { Prisma, PrismaClient } from '@prisma/client';
 import { BatchPayload } from 'prisma';
 
 import { GROUPS } from './groups';
@@ -83,7 +83,9 @@ async function createElementSeries(): Promise<BatchPayload> {
   });
 }
 
-async function createAtomicParticle(e: TableElement): Promise<Connection> {
+async function createAtomicParticle(
+  e: TableElement,
+): Promise<Prisma.Prisma__AtomicParticlesClient<{ id: number }>> {
   const { neutrons, protons, electrons } = e;
   return await prisma.atomicParticles.create({
     data: {
@@ -95,7 +97,9 @@ async function createAtomicParticle(e: TableElement): Promise<Connection> {
   });
 }
 
-async function createElectronShell(e: TableElement): Promise<Connection> {
+async function createElectronShell(
+  e: TableElement,
+): Promise<Prisma.Prisma__ElectronShellClient<TableConnection>> {
   const { shells, valence, electrons } = e;
   return await prisma.electronShell.create({
     data: {
@@ -107,7 +111,9 @@ async function createElectronShell(e: TableElement): Promise<Connection> {
   });
 }
 
-async function createElementProperties(e: TableElement): Promise<Connection> {
+async function createElementProperties(
+  e: TableElement,
+): Promise<Prisma.Prisma__ElementPropertiesClient<TableConnection>> {
   return await prisma.elementProperties.create({
     data: {
       atomicMass: e.atomicMass,
@@ -124,7 +130,9 @@ async function createElementProperties(e: TableElement): Promise<Connection> {
   });
 }
 
-async function createElementDetails(e: TableElement): Promise<Connection> {
+async function createElementDetails(
+  e: TableElement,
+): Promise<Prisma.Prisma__ElementDetailsClient<TableConnection>> {
   return await prisma.elementDetails.create({
     data: {
       radioactive: e.radioactive,
@@ -139,7 +147,7 @@ async function createElementDetails(e: TableElement): Promise<Connection> {
   });
 }
 
-async function createElementPhases(): Promise<void> {
+async function createElementPhases(): Promise<BatchPayload> {
   await prisma.elementPhase.createMany({
     data: PHASES.map((t) => ({
       typeId: t.typeId,
@@ -149,27 +157,33 @@ async function createElementPhases(): Promise<void> {
   });
 }
 
-async function createElementPhaseTypes(): Promise<void> {
+async function createElementPhaseTypes(): Promise<BatchPayload> {
   await prisma.elementPhaseType.createMany({
     data: PHASE_TYPES.map((name) => ({ name })),
   });
 }
 
-async function findElementGroup(id: number): Promise<Connection> {
+async function findElementGroup(
+  id: number,
+): Promise<Prisma.Prisma__ElementGroupClient<TableConnection>> {
   return await prisma.elementGroup.findUnique({
     where: { id },
     select: selectId,
   });
 }
 
-async function findElementPeriod(id: number): Promise<Connection> {
+async function findElementPeriod(
+  id: number,
+): Promise<Prisma.Prisma__ElementPeriodClient<TableConnection>> {
   return await prisma.elementPeriod.findUnique({
     where: { id },
     select: selectId,
   });
 }
 
-async function findElementSeries(name: string): Promise<Connection> {
+async function findElementSeries(
+  name: string,
+): Promise<Prisma.Prisma__ElementSeriesClient<TableConnection>> {
   return await prisma.elementSeries.findFirst({
     where: { name },
     select: selectId,
@@ -183,6 +197,6 @@ main()
   })
   .finally(() => prisma.$disconnect);
 
-interface Connection {
+interface TableConnection {
   id: number;
 }

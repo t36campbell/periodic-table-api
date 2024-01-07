@@ -12,10 +12,12 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~16.2.11",
+    "@angular/cdk": "^16.2.10",
     "@angular/common": "~16.2.11",
     "@angular/compiler": "~16.2.11",
     "@angular/core": "~16.2.11",
     "@angular/forms": "~16.2.11",
+    "@angular/material": "^16.2.10",
     "@angular/platform-browser": "~16.2.11",
     "@angular/platform-browser-dynamic": "~16.2.11",
     "@angular/router": "~16.2.11",
@@ -36,6 +38,7 @@
     "@types/node": "^20.8.9",
     "@typescript-eslint/eslint-plugin": "6.9.0",
     "@typescript-eslint/parser": "6.9.0",
+    "autoprefixer": "^10.4.16",
     "eslint": "^8.52.0",
     "jasmine-core": "~5.1.1",
     "karma": "~6.4.2",
@@ -43,6 +46,8 @@
     "karma-coverage": "~2.2.1",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.5",
     "typescript": "~5.1.6"
   }
 }
